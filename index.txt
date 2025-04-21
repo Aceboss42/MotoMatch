@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MotoMatch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>MotoMatch</h1>
+  <form id="bikeForm">
+    <label>Age: <input type="number" id="age" required></label><br>
+    <label>Height (cm): <input type="number" id="height" required></label><br>
+    <label>Weight (kg): <input type="number" id="weight" required></label><br>
+    <label>Experience:
+      <select id="experience" required>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="expert">Expert</option>
+      </select>
+    </label><br>
+    <label>Riding Style:
+      <select id="style" required>
+        <option value="trail">Trail</option>
+        <option value="motocross">Motocross</option>
+        <option value="enduro">Enduro</option>
+      </select>
+    </label><br>
+    <button type="submit">Get Recommendation</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

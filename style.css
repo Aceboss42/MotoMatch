@@ -1,0 +1,32 @@
+body {
+  font-family: sans-serif;
+  margin: 40px;
+  background: #f9f9f9;
+}
+
+h1 {
+  color: #333;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input, select {
+  margin: 5px 0;
+  padding: 8px;
+  width: 200px;
+}
+
+button {
+  padding: 10px 15px;
+  background: #0077cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#result {
+  font-weight: bold;
+  margin-top: 20px;
+}
