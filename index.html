@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MotoMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">
+      <img src="logo.png" alt="MotoMatch logo">
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="hamburger"></span>
+    </button>
+    <nav class="nav">
+      <ul class="nav__list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#match">MotoMatch</a></li>
+        <li><a href="#schematics">Schematics</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="section section--hero">
+      <div class="container">
+        <h1>Welcome to MotoMatch</h1>
+        <p>Your personalised dirt-bike matchmaker. Find the perfect motocross bike based on your size, weight & skill.</p>
+      </div>
+    </section>
+
+    <section id="match" class="section">
+      <div class="container">
+        <h2>MotoMatch Bike Finder</h2>
+        <form id="bikeForm" class="form">
+          <label>Age<input type="number" id="age" required></label>
+          <label>Height (cm)<input type="number" id="height" required></label>
+          <label>Weight (kg)<input type="number" id="weight" required></label>
+          <label>Experience
+            <select id="experience">
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </label>
+          <label>Riding Style
+            <select id="style">
+              <option value="motocross">Motocross</option>
+            </select>
+          </label>
+          <button type="submit">Find Bike</button>
+        </form>
+        <div id="debug" class="debug"></div>
+        <div id="result" class="result"></div>
+      </div>
+    </section>
+
+    <section id="schematics" class="section section--placeholder">
+      <div class="container">
+        <h2>Bike Schematics</h2>
+        <p>Coming soon: detailed OEM schematics for every motocross model from 2000 onwards.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2025 MotoMatch. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+[
+  {
+    "brand": "Yamaha",
+    "model": "YZ85",
+    "year": 2024,
+    "minWeight": 30,
+    "maxWeight": 55,
+    "experience": "beginner",
+    "style": "motocross",
+    "engine": "85cc"
+  },
+  {
+    "brand": "Yamaha",
+    "model": "YZ125",
+    "year": 2024,
+    "minWeight": 50,
+    "maxWeight": 75,
+    "experience": "intermediate",
+    "style": "motocross",
+    "engine": "125cc"
+  },
+  {
+    "brand": "Kawasaki",
+    "model": "KX250",
+    "year": 2024,
+    "minWeight": 65,
+    "maxWeight": 85,
+    "experience": "intermediate",
+    "style": "motocross",
+    "engine": "250cc"
+  },
+  {
+    "brand": "Honda",
+    "model": "CRF450R",
+    "year": 2024,
+    "minWeight": 75,
+    "maxWeight": 100,
+    "experience": "advanced",
+    "style": "motocross",
+    "engine": "450cc"
+  },
+  {
+    "brand": "Suzuki",
+    "model": "RM-Z250",
+    "year": 2024,
+    "minWeight": 60,
+    "maxWeight": 80,
+    "experience": "intermediate",
+    "style": "motocross",
+    "engine": "250cc"
+  },
+  {
+    "brand": "KTM",
+    "model": "250 SX-F",
+    "year": 2024,
+    "minWeight": 65,
+    "maxWeight": 85,
+    "experience": "advanced",
+    "style": "motocross",
+    "engine": "250cc"
+  },
+  {
+    "brand": "Honda",
+    "model": "CRF150R",
+    "year": 2024,
+    "minWeight": 45,
+    "maxWeight": 65,
+    "experience": "beginner",
+    "style": "motocross",
+    "engine": "149cc"
+  },
+  {
+    "brand": "Kawasaki",
+    "model": "KX100",
+    "year": 2024,
+    "minWeight": 50,
+    "maxWeight": 70,
+    "experience": "intermediate",
+    "style": "motocross",
+    "engine": "99cc"
+  }
+]

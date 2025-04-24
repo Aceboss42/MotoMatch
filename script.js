@@ -1,45 +1,42 @@
-// Wait until the DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("bikeForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+// NAV TOGGLE
+const navToggle = document.querySelector('.nav-toggle');
+const nav = document.querySelector('.nav');
+navToggle.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
 
-    // 1. Read user input
-    const experience = document.getElementById("experience").value;
-    const style      = document.getElementById("style").value;
+// BIKE MATCHER
+document.getElementById('bikeForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const age = +document.getElementById('age').value;
+  const height = +document.getElementById('height').value;
+  const weight = +document.getElementById('weight').value;
+  const experience = document.getElementById('experience').value;
+  const style = document.getElementById('style').value;
 
-    // 2. Sample bike database (expand later)
-    const bikes = [
-      { brand: "Yamaha",     model: "YZ125",  year: 2000, cc: 125, type: "motocross", experience: "beginner" },
-      { brand: "Yamaha",     model: "YZ250",  year: 2020, cc: 250, type: "motocross", experience: "intermediate" },
-      { brand: "Yamaha",     model: "YZ450F", year: 2022, cc: 450, type: "motocross", experience: "expert" },
+  document.getElementById('debug').innerText =
+    `Form submitted → Age ${age}, Height ${height}, Weight ${weight}, Experience ${experience}`;
 
-      { brand: "Kawasaki",   model: "KX100",  year: 2005, cc: 100, type: "motocross", experience: "beginner" },
-      { brand: "Kawasaki",   model: "KX250",  year: 2019, cc: 250, type: "motocross", experience: "intermediate" },
-      { brand: "Kawasaki",   model: "KX450",  year: 2021, cc: 450, type: "motocross", experience: "expert" },
-
-      { brand: "Honda",      model: "CRF150R",year: 2007, cc: 150, type: "motocross", experience: "beginner" },
-      { brand: "Honda",      model: "CRF250R",year: 2018, cc: 250, type: "motocross", experience: "intermediate" },
-      { brand: "Honda",      model: "CRF450R",year: 2022, cc: 450, type: "motocross", experience: "expert" }
-    ];
-
-    // 3. Filter by user’s experience & riding style
-    const recommended = bikes.filter(bike =>
-      bike.experience === experience && bike.type === style
-    );
-
-    // 4. Build the display string
-    let output;
-    if (recommended.length) {
-      output = "We recommend:\n";
-      recommended.forEach(bike => {
-        output += `• ${bike.brand} ${bike.model} (${bike.year}, ${bike.cc}cc)\n`;
-      });
-    } else {
-      output = "Sorry, we don’t have a match for that combination yet.";
-    }
-
-    // 5. Show it on the page
-    const resultEl = document.getElementById("result");
-    resultEl.innerText = output.replace(/\n/g, "\n");
-  });
+  fetch('bikes.json')
+    .then(res => {
+      if (!res.ok) throw new Error('Could not load bikes.json');
+      return res.json();
+    })
+    .then(bikes => {
+      const matches = bikes.filter(b =>
+        b.style === style &&
+        b.experience === experience &&
+        weight >= b.minWeight &&
+        weight <= b.maxWeight
+      );
+      if (matches.length) {
+        document.getElementById('result').innerHTML = 
+          '<ul>' + matches.map(b => `<li>${b.brand} ${b.model} (${b.engine}, ${b.year})</li>`).join('') + '</ul>';
+      } else {
+        document.getElementById('result').innerHTML = '<p>No bikes match your criteria.</p>';
+      }
+    })
+    .catch(err => {
+      document.getElementById('debug').innerText += `\nError: ${err.message}`;
+    });
 });
